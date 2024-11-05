@@ -1,0 +1,109 @@
+/* Apply styles to the lightning card container */
+.slds-card__body {
+    padding: 1.5rem;
+    background-color: #f9fafb;
+}
+
+/* General styling for the card */
+.paymentCard,
+.paymentSuccessCard {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    background-color: #ffffff;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Payment Heading styling */
+.paymentHeading {
+    color: #1a73e8;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Card details section */
+.cardDetails h1, 
+.amountDetails h1 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+
+/* Lightning input styling */
+.lightning-input {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Visa logo styling */
+.visaLogo img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* Payment amount styling */
+.amountDetails {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Pay button styling */
+lightning-button[variant="brand"] {
+    background-color: #1a73e8;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+}
+
+/* Success message card */
+.paymentSuccessCard h1 {
+    color: #4caf50;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.paymentSuccessCard h2 {
+    color: #333333;
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+
+.paymentSuccessCard img {
+    border-radius: 50%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Note message styling */
+h1 strong {
+    font-size: 1rem;
+    color: #666666;
+}
+
+/* Container for input field with icon */
+.input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px; /* Adjust width as needed */
+}
+
+/* Style for card number input */
+.card-number-input input {
+    padding-right: 40px; /* Add space for the icon */
+    box-sizing: border-box;
+}
+
+/* Position the icon inside the input field */
+.input-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Prevents the icon from blocking input */
+}
+

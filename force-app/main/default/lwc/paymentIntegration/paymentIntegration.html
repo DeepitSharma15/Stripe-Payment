@@ -1,0 +1,55 @@
+<template>
+    <!-- Defining Lightning Card to Display Payment Details and Card Details -->
+    <lightning-card title="Payment">
+        <!-- If isSuccess is false, show the Payment UI -->
+        <template if:false={isSuccess}>
+            <!-- Defining Payment Card for Payment Details -->
+            <div class="paymentCard">
+                <center>
+                    <h1 class="paymentHeading"><strong>Payment Details</strong></h1>
+                </center>
+                <div class="cardDetails">
+                    <h1><strong>Card Information</strong></h1><br>
+                    <span class="visaLogo">
+                        <!-- <img src="https://techmatrixconsulting-ec-dev-ed--c.develop.vf.force.com/resource/1726554872000/Visa" height="20px" width="30px" /> -->
+                    </span>
+
+                    <div class="input-container">
+                        <lightning-input class="card-number-input" label="Card Number" onchange={handleCardNumberChange}></lightning-input>
+                        <img src="https://techmatrixconsulting-ec-dev-ed--c.develop.vf.force.com/resource/1726554872000/Visa" class="input-icon" height="20px" width="30px" />
+                    </div>
+
+                    <br>
+                    <lightning-input label="Card Expiration" onchange={handleExpiryChange}></lightning-input><br>
+                    <span class="visaLogo">
+                        <!-- <img src="https://techmatrixconsulting-ec-dev-ed--c.develop.vf.force.com/resource/1726555177000/Cvv" height="20px" width="30px" /> -->
+                    </span>
+                    <lightning-input label="Card CVV" onchange={handleCVVChange}></lightning-input><br>
+                    <lightning-input label="Card Holder Name" value="John" onchange={handleCardHolderChange}></lightning-input><br>
+                </div><br>
+                <div class="amountDetails">
+                    <h1><strong>Payment Amount</strong></h1><br>
+                    <span class="visaLogo">₹</span>
+                    <lightning-input label="Amount" value="50" onchange={handlePaymentChange}></lightning-input><br>
+                </div>
+                <center>
+                    <lightning-button label="Pay" variant="brand" onclick={handlePayClick}></lightning-button>
+                </center>
+            </div>
+            <center>
+                <h1><strong>Note: Please make a payment of at least 50 rupees.</strong></h1>
+            </center>
+        </template>
+        
+        <!-- If isSuccess is true, show the Success Payment UI -->
+        <template if:true={isSuccess}>
+            <div class="paymentSuccessCard">
+                <center>
+                    <img src="https://techmatrixconsulting-ec-dev-ed--c.develop.vf.force.com/resource/1726565715000/Payment" height="150px" width="150px">
+                </center>
+                <h1><strong>Payment Successful</strong></h1><br>
+                <h2><strong>Payment of ₹{paymentAmount} has been completed successfully.</strong></h2>
+            </div>
+        </template>
+    </lightning-card>
+</template>
