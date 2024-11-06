@@ -79,17 +79,19 @@ export default class PaymentIntegration extends LightningElement {
         {
             // Creating the card Data with the necessary Details
             const cardData = {
-                number: this.cardNumber,
-                exp_month: this.cardExpiry.split('/')[0],
-                exp_year: '20' + this.cardExpiry.split('/')[1], // Assuming the input is MM/YY
-                cvc: this.cardCvv,
-                name: this.cardHolderName
+                    number: this.cardNumber,
+                    exp_month: this.cardExpiry.split('/')[0],
+                    exp_year: '20' + this.cardExpiry.split('/')[1], // Assuming the input is MM/YY
+                    cvc: this.cardCvv,
+                    name: this.cardHolderName
             };
             console.log(JSON.stringify(cardData));
 
             createStripeToken({ cardData: JSON.stringify(cardData) }) // Call Apex method
             .then(result => {
                 console.log('Token created:', result); // Handle successful token creation
+                console.log('Submittnig Paymen...');
+                this.submitPayment(this.paymentAmount*100, result);
             })
             .catch(error => {
 
@@ -97,20 +99,21 @@ export default class PaymentIntegration extends LightningElement {
                 this.errorMessage = error.body.message; // Display error message
             });
 
-            console.log("Meeting all condition...");
+            // console.log("Meeting all condition...");
             //this.submitPayment(this.paymentAmount*100);
         }
     }
 
-    submitPayment(amount)
+    submitPayment(amount, token)
     {
         console.log('Submiting the payment...');
-        makePayment({amount : amount})//Submitting Request To Apex
+        makePayment({amount : amount , token: token})//Submitting Request To Apex
         .then(result=>{
             this.showToast('Payment Success','Payment Of Amount '+this.paymentAmount+' Has Been Done.','Success','Dismissible');
             //this.isSuccess = true;//Updating Boolean Variable To True For Payment Success Message
         })
         .catch(error=>{
+            console.log(error.message);
             this.showToast('Error Processing Payment','Due To Some Error Payment Cannt Be Processed','Error','Dismissible');
         })
     }

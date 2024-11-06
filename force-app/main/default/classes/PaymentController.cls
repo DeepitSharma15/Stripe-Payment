@@ -4,7 +4,7 @@ public class PaymentController {
      * @return : This Method Returns The String Of Response
      */
     @AuraEnabled
-    public static String makePayment(Integer amount)
+    public static String makePayment(Integer amount, String token)
     {
         try{
             //Fetching Custom Metadata For Credentials
@@ -18,7 +18,7 @@ public class PaymentController {
             HttpResponse response = new HttpResponse();
             Http httpRequest = new Http();
 
-            String requestBody = 'amount='+EncodingUtil.urlEncode(String.valueOf(amount),'UTF-8')+'&currency='+EncodingUtil.urlEncode('inr','UTF-8')+'&source='+EncodingUtil.urlEncode('tok_visa','UTF-8');
+            String requestBody = 'amount='+EncodingUtil.urlEncode(String.valueOf(amount),'UTF-8')+'&currency='+EncodingUtil.urlEncode('inr','UTF-8')+'&source='+EncodingUtil.urlEncode(token ,'UTF-8');
             request.setEndpoint(apiURL);
             request.setMethod('POST');
             request.setBody(requestBody);

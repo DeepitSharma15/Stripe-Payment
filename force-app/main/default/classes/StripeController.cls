@@ -2,7 +2,14 @@ public with sharing class StripeController {
     @AuraEnabled
     public static String createStripeToken(String cardData) {
         // Deserialize JSON string into a Map
-        Map<String, String> cardDetails = (Map<String, String>) JSON.deserializeUntyped(cardData);
+        // Deserialize JSON string into Map<String, Object>
+        Map<String, Object> rawCardDetails = (Map<String, Object>) JSON.deserializeUntyped(cardData);
+
+    // Convert Map<String, Object> to Map<String, String>
+        Map<String, String> cardDetails = new Map<String, String>();
+        for (String key : rawCardDetails.keySet()) {
+            cardDetails.put(key, (String) rawCardDetails.get(key));
+        }
 
         // Prepare the request
         Payment_Credentials__mdt credentials = Payment_Credentials__mdt.getInstance('Payment_Keys');
