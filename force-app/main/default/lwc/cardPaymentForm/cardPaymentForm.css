@@ -1,0 +1,255 @@
+
+.slds-card__body {
+    padding: 1.5rem;
+    background-color: #f9fafb;
+}
+
+
+.paymentCard,
+.paymentSuccessCard {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    background-color: #ffffff;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.paymentHeading {
+    color: #1a73e8;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+
+.cardDetails h1, 
+.amountDetails h1 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+
+
+.lightning-input {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+
+.visaLogo img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+
+.amountDetails {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+
+lightning-button[variant="brand"] {
+    background-color: #1a73e8;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+}
+
+
+.paymentSuccessCard h1 {
+    color: #4caf50;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.paymentSuccessCard h2 {
+    color: #333333;
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+
+.paymentSuccessCard img {
+    border-radius: 50%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+h1 strong {
+    font-size: 1rem;
+    color: #666666;
+}
+
+
+.input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px; 
+}
+
+
+.card-number-input input {
+    padding-right: 40px; 
+    box-sizing: border-box;
+}
+
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none; 
+}
+
+.expiry-cvv-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.paymentCard, .cardDetails, .amountDetails {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.amountDetails h2 {
+    font-weight: 400;
+    color: gray;
+}
+.lightning-like-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgb(44, 40, 40); /* Matches standard lightning-input border */
+    border-radius: 0.25rem;
+    padding: 0 8px;
+    background-color: #fff;
+    height: 2.2rem;
+    box-sizing: border-box;
+}
+
+.lightning-like-input-container:focus {
+    border: 2px solid #0a406d !important; /* Salesforce blue on focus */
+    /* Remove default outline */
+}
+
+/* Styling for the custom input field */
+.card-number-input {
+    width: 100%; /* Full width until the icon */
+    border: none; /* No visible border */
+    outline: none;
+    padding-right: 40px; /* Room for icon inside */
+    font-size: 0.875rem;
+}
+
+/* Card brand icon positioned inside the input container */
+.card-logo-image {
+    position: absolute;
+    right: 12px;
+    height: 20px;
+    width: 30px;
+    pointer-events: none;
+}
+.payment-success-container {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeIn 0.5s forwards, scaleUp 0.5s forwards;
+    margin: auto;
+    height: 350px;
+    width: 500px;
+}
+
+.success-icon {
+    background-color: #0e5110;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    font-size: 30px;
+    animation: bounce 0.6s ease-out; /* Bounce animation */
+}
+
+.checkmark-icon {
+    color: white;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+p {
+    color: #cccccc;
+    margin: 0 0 20px;
+    font-size: 0.9rem;
+}
+
+.dashboard-button {
+    background-color: #4CAF50;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Button hover transition */
+}
+
+.dashboard-button:hover {
+    background-color: #45a049;
+}
+
+/* Confetti effect */
+.confetti {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 150px;
+    background-image: url('/resources/images/confetti.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    animation: dropConfetti 2s ease-out; /* Confetti drop animation */
+    opacity: 0.8;
+}
+
+/* Keyframes for animations */
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Bounce animation for success icon */
+@keyframes bounce {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Confetti drop animation */
+@keyframes dropConfetti {
+    0% { top: -150px; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 10px; opacity: 0; }
+}

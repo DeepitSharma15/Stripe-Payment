@@ -1,0 +1,90 @@
+
+
+<template>
+    <lightning-card title="Payment">
+        <template if:false={isSuccess}>
+            <div class="paymentCard">
+                <center><h1 class="paymentHeading"><strong>Payment Details</strong></h1></center>
+
+                <div class="cardDetails">
+                    <lightning-input 
+                        placeholder="Enter Card Holder Name" 
+                        onchange={handleCardHolderChange}>
+                    </lightning-input><br>
+
+                    
+                        <div class="parent-div">
+                            <div class="inner-div">
+                                                               <div class="lightning-like-input-container">
+                                    <input 
+                                        placeholder="Enter Card Number" 
+                                        class="card-number-input" 
+                                        type="tel" 
+                                        onchange={handleCardNumberChange} 
+                                        inputmode="numeric" 
+                                        maxlength="16" 
+                                        value={cardNumber}/>
+                                        
+                                    <img 
+                                    src={cardLogo} 
+                                         alt="Card Brand" 
+                                         class="card-logo-image" />
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="expiry-cvv-container">
+                        <lightning-input 
+                            placeholder="MM/YY" 
+                            type="tel"
+                            onchange={handleExpiryChange}
+                            >
+                        </lightning-input>
+
+                        <lightning-input 
+                            placeholder="Enter CVV" 
+                            type="tel" 
+                            maxlength="4" 
+                            onchange={handleCVVChange}
+                            inputmode="numeric">
+                        </lightning-input>
+                    </div>
+
+                    <div class="amountDetails">
+                        <lightning-input 
+                            placeholder="Enter Amount (Minimum 50)" 
+                            value="50" 
+                            onchange={handlePaymentChange} 
+                            type="number">
+                        </lightning-input>
+                    </div>
+
+                    <center>
+                        <lightning-button label="Pay" variant="brand" onclick={handlePayClick}></lightning-button>
+                    </center>
+                </div>
+                <center><h1><strong>Note: Please make a payment of at least $50.</strong></h1></center>
+            </div>
+        </template>
+
+        <template if:true={isSuccess}>
+            
+            <div class="payment-success-container">
+                <div class="success-icon">
+                    <lightning-icon icon-name="utility:success" alternative-text="Success" size="large" class="checkmark-icon"></lightning-icon>
+                </div>
+                <p>Payment succeeded!</p>
+                <p>Payment of ${paymentAmount} has been completed successfully.</p>
+                <div  class="dashboardbtn">
+                <lightning-button label="Go to Your Dashboard" onclick={goToDashboard} variant="brand" style = 'color: green'></lightning-button>
+            </div>
+        </div>
+        </template>
+    </lightning-card>
+</template>
+
+
+
+
+
+
